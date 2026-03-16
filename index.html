@@ -1,46 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Milena Pires - 75632 - Colours Project</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+font-family:Arial;
+background:#f4f4f4;
+}
+
+section{
+width:600px;
+height:350px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+gap:20px;
+border-radius:15px;
+box-shadow:0 4px 12px rgba(0,0,0,0.2);
+background:white;
+}
+
+#hexCode{
+padding:15px 25px;
+border:2px solid #000;
+border-radius:10px;
+font-size:20px;
+font-weight:bold;
+background:white;
+}
+
+button{
+padding:12px 22px;
+border:none;
+border-radius:8px;
+background:#222;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#444;
+}
+
+button i{
+margin-right:8px;
+}
+
+</style>
+
 </head>
 
 <body>
 
 <section id="colourSection">
+
 <div id="hexCode">#FFFFFF</div>
 
-<button id="changeColourBtn">Change Colour</button>
+<button id="changeColourBtn">
+<i class="fa-solid fa-palette"></i>
+Change Colour
+</button>
+
 </section>
 
 <script>
 
-function getRandomNumber(max) {
-return Math.floor(Math.random() * max);
+function getRandomNumber(max){
+return Math.floor(Math.random()*max);
 }
 
-const hexCharacters = [
+const hexCharacters=[
 "0","1","2","3","4","5","6","7",
 "8","9","A","B","C","D","E","F"
 ];
 
-const colourSection = document.getElementById("colourSection");
-const hexCodeDisplay = document.getElementById("hexCode");
-const changeColourBtn = document.getElementById("changeColourBtn");
+const colourSection=document.getElementById("colourSection");
+const hexCodeDisplay=document.getElementById("hexCode");
+const changeColourBtn=document.getElementById("changeColourBtn");
 
-changeColourBtn.addEventListener("click", () => {
+changeColourBtn.addEventListener("click",()=>{
 
-let hexCode = "#";
+let hexCode="#";
 
-for (let i = 0; i < 6; i++) {
-const randomIndex = getRandomNumber(hexCharacters.length);
-hexCode += hexCharacters[randomIndex];
+for(let i=0;i<6;i++){
+
+const randomIndex=getRandomNumber(hexCharacters.length);
+
+hexCode+=hexCharacters[randomIndex];
+
 }
 
-colourSection.style.backgroundColor = hexCode;
+colourSection.style.backgroundColor=hexCode;
 
-hexCodeDisplay.textContent = hexCode;
+hexCodeDisplay.textContent=hexCode;
 
 });
 
